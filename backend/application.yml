@@ -1,0 +1,19 @@
+server:
+  port: 8080
+  address: 127.0.0.1
+
+spring:
+  datasource:
+    url: jdbc:sqlite:econ.db   # relative path
+    driver-class-name: org.sqlite.JDBC
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api/swagger.json       # URL for raw OpenAPI JSON
+  swagger-ui:
+    enabled: true
+    path: /api/swagger-ui.html  # UI endpoint
+    operationsSorter: method # sort endpoints by HTTP method
+    tagsSorter: alpha       # sort tags alphabetically
+  show-actuator: true        # if you want actuator endpoints included

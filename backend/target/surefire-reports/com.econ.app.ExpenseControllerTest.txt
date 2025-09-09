@@ -1,0 +1,50 @@
+-------------------------------------------------------------------------------
+Test set: com.econ.app.ExpenseControllerTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 3.137 s <<< FAILURE! -- in com.econ.app.ExpenseControllerTest
+com.econ.app.ExpenseControllerTest.testPost -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:46)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:161)
+	at com.econ.app.ExpenseControllerTest.testPost(ExpenseControllerTest.java:46)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+Caused by: org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: EXPENSES.id)
+	at org.sqlite.core.DB.newSQLException(DB.java:1179)
+	at org.sqlite.core.DB.newSQLException(DB.java:1190)
+	at org.sqlite.core.DB.execute(DB.java:985)
+	at org.sqlite.core.DB.executeUpdate(DB.java:1054)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.lambda$executeLargeUpdate$2(JDBC3PreparedStatement.java:129)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:458)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeLargeUpdate(JDBC3PreparedStatement.java:124)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:105)
+	at com.econ.app.expense.ExpenseRepo.create(ExpenseRepo.java:42)
+	at com.econ.app.expense.ExpenseFacade.create(ExpenseFacade.java:38)
+	at com.econ.app.expense.ExpenseController.postExpense(ExpenseController.java:41)
+	at com.econ.app.ExpenseControllerTest.testPost(ExpenseControllerTest.java:41)
+	... 3 more
+
+com.econ.app.ExpenseControllerTest.testDelete -- Time elapsed: 3.126 s <<< FAILURE!
+org.opentest4j.AssertionFailedError
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:46)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:161)
+	at com.econ.app.ExpenseControllerTest.testDelete(ExpenseControllerTest.java:32)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+Caused by: org.sqlite.SQLiteException: [SQLITE_BUSY] The database file is locked (database is locked)
+	at org.sqlite.core.DB.newSQLException(DB.java:1179)
+	at org.sqlite.core.DB.newSQLException(DB.java:1190)
+	at org.sqlite.core.DB.execute(DB.java:985)
+	at org.sqlite.core.DB.executeUpdate(DB.java:1054)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.lambda$executeLargeUpdate$2(JDBC3PreparedStatement.java:129)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:458)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeLargeUpdate(JDBC3PreparedStatement.java:124)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:105)
+	at com.econ.app.expense.ExpenseRepo.remove(ExpenseRepo.java:58)
+	at com.econ.app.expense.ExpenseFacade.remove(ExpenseFacade.java:46)
+	at com.econ.app.expense.ExpenseController.removeExpense(ExpenseController.java:53)
+	at com.econ.app.ExpenseControllerTest.testDelete(ExpenseControllerTest.java:28)
+	... 3 more
+

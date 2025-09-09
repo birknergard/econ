@@ -1,0 +1,14 @@
+package com.econ.app.database;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConnectionHandler {
+
+  private static final String jdbcUrl = "jdbc:sqlite:data.db";
+
+  public Connection getConnection() throws SQLException {
+    return DriverManager.getConnection(jdbcUrl);
+  }
+}
