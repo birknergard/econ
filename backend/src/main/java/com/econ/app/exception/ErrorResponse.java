@@ -1,6 +1,5 @@
 package com.econ.app.exception;
 
-
 public class ErrorResponse {
   int status;
   String message;
@@ -8,5 +7,13 @@ public class ErrorResponse {
   public ErrorResponse(int status, String message) {
     this.message = message;
     this.status = status;
+  }
+
+  public String getMessage() {
+    return message;
+  }
+
+  public int getStatus() {
+    return status;
   }
 }

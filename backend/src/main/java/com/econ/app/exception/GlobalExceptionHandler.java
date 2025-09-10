@@ -15,6 +15,7 @@ public class GlobalExceptionHandler {
   public ResponseEntity<ErrorResponse> handleAnyException(Exception ex) {
     ErrorResponse error =
         new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), ex.getMessage());
+    ex.printStackTrace();
     return new ResponseEntity<ErrorResponse>(error, HttpStatus.INTERNAL_SERVER_ERROR);
   }
 
@@ -23,6 +24,7 @@ public class GlobalExceptionHandler {
   public ResponseEntity<ErrorResponse> handleBadRequestException(
       MethodArgumentNotValidException ex) {
     ErrorResponse error = new ErrorResponse(HttpStatus.BAD_REQUEST.value(), ex.getMessage());
+    ex.printStackTrace();
     return new ResponseEntity<ErrorResponse>(error, HttpStatus.BAD_REQUEST);
   }
 
@@ -30,6 +32,16 @@ public class GlobalExceptionHandler {
   @ExceptionHandler(ResourceNotFoundException.class)
   public ResponseEntity<ErrorResponse> handleNotFoundException(ResourceNotFoundException ex) {
     ErrorResponse error = new ErrorResponse(HttpStatus.NOT_FOUND.value(), ex.getMessage());
+    ex.printStackTrace();
     return new ResponseEntity<ErrorResponse>(error, HttpStatus.NOT_FOUND);
+  }
+
+  @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
+  @ExceptionHandler()
+  public ResponseEntity<ErrorResponse> NotAcceptableRepresentationException(
+      NotAcceptableException ex) {
+    ErrorResponse error = new ErrorResponse(HttpStatus.NOT_ACCEPTABLE.value(), ex.getMessage());
+    ex.printStackTrace();
+    return new ResponseEntity<ErrorResponse>(error, HttpStatus.NOT_ACCEPTABLE);
   }
 }

@@ -43,4 +43,28 @@ public class ExpenseList {
     this.savings = filterByCategory(expenses, Categories.SAVINGS.name());
     this.debt = filterByCategory(expenses, Categories.DEBT.name());
   }
+
+  public Expense[] getHousing() {
+    return housing;
+  }
+
+  public Expense[] getFood() {
+    return food;
+  }
+
+  public Expense[] getTransport() {
+    return transport;
+  }
+
+  public Expense[] getOther() {
+    return other;
+  }
+
+  public Expense[] getSavings() {
+    return savings;
+  }
+
+  public Expense[] getDebt() {
+    return debt;
+  }
 }
