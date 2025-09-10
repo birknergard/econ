@@ -1,6 +1,6 @@
 package com.econ.app.expense;
 
-import com.econ.app.models.Expense;
+import com.econ.app.models.*;
 import java.sql.SQLException;
 
 public class ExpenseFacade {
@@ -16,6 +16,11 @@ public class ExpenseFacade {
 
   public Expense[] getAll() throws Exception {
     return repository.getAll();
+  }
+
+  public ExpenseList getExpenseByCategories() throws Exception {
+    Expense[] unsorted = repository.getAll();
+    return new ExpenseList(unsorted);
   }
 
   public Expense get(String id) throws Exception {

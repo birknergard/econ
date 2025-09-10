@@ -2,10 +2,12 @@ import { Expense, ExpenseControllerService } from "@/generated";
 import styled from "styled-components/native";
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
-import { FlatList, FlatListComponent, Text, View } from "react-native";
-import { Header, LargeText, PlainText, Title } from "@/components/text";
+import { FlatList } from "react-native";
+import { LargeText, PlainText } from "@/components/text";
+import PageView from "@/components/views/pageView";
 
 function ExpensePage() {
+  const [sum, setSum] = useState(0);
   const { data: expenses } = useQuery({
     queryKey: ["expenseQuery"],
     queryFn: async () => {
@@ -16,20 +18,19 @@ function ExpensePage() {
         })
         .catch((e) => {
           console.error("Could not fetch expenses", e);
-          return undefined;
+          return [];
         });
     },
   });
 
-  const [sum, setSum] = useState(0);
-
   return (
-    <MainView>
+    <PageView>
       {!expenses ? (
         <PlainText>Loading ...</PlainText>
       ) : (
-        <ContentView>
+        <>
           <Sum>{sum}</Sum>
+          <ExpenseView />
           <FlatList
             data={expenses}
             keyExtractor={(item: Expense) => item.id}
@@ -39,28 +40,17 @@ function ExpensePage() {
               </PlainText>
             )}
           />
-        </ContentView>
+          <ExpenseView />
+        </>
       )}
-    </MainView>
+    </PageView>
   );
 }
 
 export default ExpensePage;
 
-const MainView = styled.View`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const ContentView = styled.View`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
 const Sum = styled(LargeText)`
   color: #ff0000;
 `;
+
+const ExpenseView = styled.View``;

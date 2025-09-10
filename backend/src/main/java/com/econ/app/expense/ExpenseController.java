@@ -1,6 +1,6 @@
 package com.econ.app.expense;
 
-import com.econ.app.models.Expense;
+import com.econ.app.models.*;
 import java.sql.SQLException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,7 +26,6 @@ import org.springframework.web.bind.annotation.RestController;
     })
 @RequestMapping("/expenses")
 public class ExpenseController {
-
   private ExpenseFacade facade;
 
   public ExpenseController() throws SQLException {
@@ -37,6 +36,13 @@ public class ExpenseController {
   @ResponseBody
   public ResponseEntity<Expense[]> getExpenses() throws Exception {
     return ResponseEntity.ok(this.facade.getAll());
+  }
+
+  // TODO: Implement
+  @GetMapping("/ex/category")
+  @ResponseBody
+  public ResponseEntity<ExpenseList> getExpensesByCategory() throws Exception {
+    return ResponseEntity.ok(this.facade.getExpenseByCategories());
   }
 
   @GetMapping("/ex={expenseId}")

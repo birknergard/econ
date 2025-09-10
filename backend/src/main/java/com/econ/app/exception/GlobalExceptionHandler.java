@@ -15,7 +15,7 @@ public class GlobalExceptionHandler {
   public ResponseEntity<ErrorResponse> handleAnyException(Exception ex) {
     ErrorResponse error =
         new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), ex.getMessage());
-    return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+    return new ResponseEntity<ErrorResponse>(error, HttpStatus.INTERNAL_SERVER_ERROR);
   }
 
   @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -23,13 +23,13 @@ public class GlobalExceptionHandler {
   public ResponseEntity<ErrorResponse> handleBadRequestException(
       MethodArgumentNotValidException ex) {
     ErrorResponse error = new ErrorResponse(HttpStatus.BAD_REQUEST.value(), ex.getMessage());
-    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    return new ResponseEntity<ErrorResponse>(error, HttpStatus.BAD_REQUEST);
   }
 
   @ResponseStatus(HttpStatus.NOT_FOUND)
   @ExceptionHandler(ResourceNotFoundException.class)
   public ResponseEntity<ErrorResponse> handleNotFoundException(ResourceNotFoundException ex) {
     ErrorResponse error = new ErrorResponse(HttpStatus.NOT_FOUND.value(), ex.getMessage());
-    return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+    return new ResponseEntity<ErrorResponse>(error, HttpStatus.NOT_FOUND);
   }
 }

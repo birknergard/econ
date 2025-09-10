@@ -1,3 +1,4 @@
+import PageView from "@/components/views/pageView";
 import { IncomeControllerService } from "@/generated";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
@@ -18,17 +19,10 @@ function IncomePage() {
   });
 
   return (
-    <MainView>
+    <PageView>
       {incomes && incomes.map((income, i) => <Text key={i}>{income.id}</Text>)}
-    </MainView>
+    </PageView>
   );
 }
 
 export default IncomePage;
-
-const MainView = styled.View`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;

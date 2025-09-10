@@ -1,20 +1,14 @@
+import PageView from "@/components/views/pageView";
 import { PlainText, Title } from "@/components/text";
 import React from "react";
 import styled from "styled-components/native";
 
 function Index() {
   return (
-    <MainView>
+    <PageView>
       <PlainText>This is the overview page</PlainText>
-    </MainView>
+    </PageView>
   );
 }
 
 export default Index;
-
-const MainView = styled.View`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
