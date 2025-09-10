@@ -1,8 +1,11 @@
 package com.econ.app.models;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 public class Field {
-  protected String id;
-  protected String name;
+  @NotNull protected String id;
+  @NotBlank protected String name;
 
   protected Field(String id, String name) {
     this.id = id;

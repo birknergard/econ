@@ -1,9 +1,11 @@
 package com.econ.app.models;
 
+import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class Income extends Field {
-  private double amount;
+
+  @NotNull private double amount;
 
   public Income(String id, String name, double amount) {
     super(id, name);

@@ -3,9 +3,9 @@
 /* tslint:disable */
 /* eslint-disable */
 export type Expense = {
-    id?: string;
-    name?: string;
-    cost?: number;
-    category?: string;
+    id: string;
+    name: string;
+    cost: number;
+    category: string;
 };
 

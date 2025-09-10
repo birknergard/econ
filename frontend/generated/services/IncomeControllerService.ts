@@ -14,7 +14,7 @@ export class IncomeControllerService {
     public static getIncomes(): CancelablePromise<Array<Income>> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/income/income',
+            url: '/incomes/in',
             errors: {
                 400: `Bad Request`,
                 404: `Not Found`,
@@ -32,7 +32,7 @@ export class IncomeControllerService {
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'PUT',
-            url: '/income/income',
+            url: '/incomes/in',
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -52,7 +52,7 @@ export class IncomeControllerService {
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/income/income',
+            url: '/incomes/in',
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -72,7 +72,7 @@ export class IncomeControllerService {
     ): CancelablePromise<Income> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/income/income={incomeId}',
+            url: '/incomes/in={incomeId}',
             query: {
                 'incomeId': incomeId,
             },
@@ -84,18 +84,19 @@ export class IncomeControllerService {
         });
     }
     /**
-     * @param requestBody
+     * @param incomeId
      * @returns any OK
      * @throws ApiError
      */
     public static removeIncome(
-        requestBody: Income,
+        incomeId: string,
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'DELETE',
-            url: '/income/income={incomeId}',
-            body: requestBody,
-            mediaType: 'application/json',
+            url: '/incomes/in={incomeId}',
+            query: {
+                'incomeId': incomeId,
+            },
             errors: {
                 400: `Bad Request`,
                 404: `Not Found`,

@@ -14,7 +14,7 @@ export class ExpenseControllerService {
     public static getExpenses(): CancelablePromise<Array<Expense>> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/expense/expense',
+            url: '/expenses/ex',
             errors: {
                 400: `Bad Request`,
                 404: `Not Found`,
@@ -32,7 +32,7 @@ export class ExpenseControllerService {
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'PUT',
-            url: '/expense/expense',
+            url: '/expenses/ex',
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -52,7 +52,7 @@ export class ExpenseControllerService {
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/expense/expense',
+            url: '/expenses/ex',
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -72,7 +72,7 @@ export class ExpenseControllerService {
     ): CancelablePromise<Expense> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/expense/expense={expenseId}',
+            url: '/expenses/ex={expenseId}',
             query: {
                 'expenseId': expenseId,
             },
@@ -84,18 +84,18 @@ export class ExpenseControllerService {
         });
     }
     /**
-     * @param id
+     * @param expenseId
      * @returns any OK
      * @throws ApiError
      */
     public static removeExpense(
-        id: string,
+        expenseId: string,
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'DELETE',
-            url: '/expense/expense={expenseId}',
+            url: '/expenses/ex={expenseId}',
             query: {
-                'id': id,
+                'expenseId': expenseId,
             },
             errors: {
                 400: `Bad Request`,

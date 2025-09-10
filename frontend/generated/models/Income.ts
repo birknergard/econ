@@ -3,8 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 export type Income = {
-    id?: string;
-    name?: string;
-    amount?: number;
+    id: string;
+    name: string;
+    amount: number;
 };
 

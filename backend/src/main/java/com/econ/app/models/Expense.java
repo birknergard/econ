@@ -1,11 +1,13 @@
 package com.econ.app.models;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class Expense extends Field {
 
-  private double cost;
-  private String category;
+  @NotNull private double cost;
+  @NotBlank private String category;
 
   public Expense(String id, String name, double cost, String category) {
     super(id, name);
