@@ -1,10 +1,10 @@
 enum Categories {
-  Bolig = "bolig",
-  Mat = "mat",
-  Transport = "transport",
-  Sparing = "sparing",
-  Annet = "annet",
-  Gjeld = "gjeld",
+  HOUSING = "bolig",
+  FOOD = "mat",
+  TRANSPORT = "transport",
+  SAVINGS = "sparing",
+  OTHER = "annet",
+  DEBT = "gjeld",
 }
 
 export default Categories;

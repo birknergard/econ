@@ -1,2 +1,3 @@
 backend/target/
 .old_frontend/
+frontend/.env

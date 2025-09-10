@@ -9,6 +9,7 @@ export type { OpenAPIConfig } from './core/OpenAPI';
 
 export type { ErrorResponse } from './models/ErrorResponse';
 export type { Expense } from './models/Expense';
+export type { ExpenseList } from './models/ExpenseList';
 export type { Income } from './models/Income';
 
 export { ExpenseControllerService } from './services/ExpenseControllerService';

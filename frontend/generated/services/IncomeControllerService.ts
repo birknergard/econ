@@ -18,6 +18,7 @@ export class IncomeControllerService {
             errors: {
                 400: `Bad Request`,
                 404: `Not Found`,
+                406: `Not Acceptable`,
                 500: `Internal Server Error`,
             },
         });
@@ -38,6 +39,7 @@ export class IncomeControllerService {
             errors: {
                 400: `Bad Request`,
                 404: `Not Found`,
+                406: `Not Acceptable`,
                 500: `Internal Server Error`,
             },
         });
@@ -58,6 +60,7 @@ export class IncomeControllerService {
             errors: {
                 400: `Bad Request`,
                 404: `Not Found`,
+                406: `Not Acceptable`,
                 500: `Internal Server Error`,
             },
         });
@@ -79,6 +82,7 @@ export class IncomeControllerService {
             errors: {
                 400: `Bad Request`,
                 404: `Not Found`,
+                406: `Not Acceptable`,
                 500: `Internal Server Error`,
             },
         });
@@ -100,6 +104,7 @@ export class IncomeControllerService {
             errors: {
                 400: `Bad Request`,
                 404: `Not Found`,
+                406: `Not Acceptable`,
                 500: `Internal Server Error`,
             },
         });

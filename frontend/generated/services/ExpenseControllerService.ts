@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { Expense } from '../models/Expense';
+import type { ExpenseList } from '../models/ExpenseList';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
@@ -18,6 +19,7 @@ export class ExpenseControllerService {
             errors: {
                 400: `Bad Request`,
                 404: `Not Found`,
+                406: `Not Acceptable`,
                 500: `Internal Server Error`,
             },
         });
@@ -38,6 +40,7 @@ export class ExpenseControllerService {
             errors: {
                 400: `Bad Request`,
                 404: `Not Found`,
+                406: `Not Acceptable`,
                 500: `Internal Server Error`,
             },
         });
@@ -58,6 +61,7 @@ export class ExpenseControllerService {
             errors: {
                 400: `Bad Request`,
                 404: `Not Found`,
+                406: `Not Acceptable`,
                 500: `Internal Server Error`,
             },
         });
@@ -79,6 +83,7 @@ export class ExpenseControllerService {
             errors: {
                 400: `Bad Request`,
                 404: `Not Found`,
+                406: `Not Acceptable`,
                 500: `Internal Server Error`,
             },
         });
@@ -100,6 +105,23 @@ export class ExpenseControllerService {
             errors: {
                 400: `Bad Request`,
                 404: `Not Found`,
+                406: `Not Acceptable`,
+                500: `Internal Server Error`,
+            },
+        });
+    }
+    /**
+     * @returns ExpenseList OK
+     * @throws ApiError
+     */
+    public static getExpensesByCategory(): CancelablePromise<ExpenseList> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/expenses/ex/category',
+            errors: {
+                400: `Bad Request`,
+                404: `Not Found`,
+                406: `Not Acceptable`,
                 500: `Internal Server Error`,
             },
         });

@@ -2,4 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type ErrorResponse = Record<string, any>;
+export type ErrorResponse = {
+    status?: number;
+    message?: string;
+};
+
