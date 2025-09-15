@@ -1,38 +1,40 @@
-# syntax=docker/dockerfile:1
+# Use Node 20 LTS (supports your dependencies)
+FROM node:20-buster-slim
 
-# Comments are provided throughout this file to help you get started.
-# If you need more help, visit the Dockerfile reference guide at
-# https://docs.docker.com/go/dockerfile-reference/
+# Set environment
+ARG NODE_ENV=development
+ENV NODE_ENV=$NODE_ENV
 
-# Want to help us make this template better? Share your feedback here: https://forms.gle/ybq9Krt8jtBL3iCk7
+ARG PORT=8081
+ENV PORT=$PORT
+EXPOSE $PORT 8082 8083
 
-ARG NODE_VERSION=20.17.0
+# Install global packages
+ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
+ENV PATH=/home/node/.npm-global/bin:$PATH
+RUN npm install -g expo-cli@latest --unsafe-perm
 
-FROM node:${NODE_VERSION}-alpine
+# Create working directory as root and set permissions
+RUN mkdir -p /opt/frontend && chown node:node /opt/frontend
+WORKDIR /opt/frontend
+ENV PATH=/opt/frontend/.bin:$PATH
 
-# Use production node environment by default.
-ENV NODE_ENV production
+# Copy dependency files and install as node
+COPY ./package.json ./package-lock.json ./
+RUN npm install
+RUN chown -R node:node /opt/frontend
 
-
-WORKDIR /usr/src/app
-
-# Download dependencies as a separate step to take advantage of Docker's caching.
-# Leverage a cache mount to /root/.npm to speed up subsequent builds.
-# Leverage a bind mounts to package.json and package-lock.json to avoid having to copy them into
-# into this layer.
-RUN --mount=type=bind,source=package.json,target=package.json \
-    --mount=type=bind,source=package-lock.json,target=package-lock.json \
-    --mount=type=cache,target=/root/.npm \
-    npm ci --omit=dev
-
-# Run the application as a non-root user.
+# Switch to node user
 USER node
 
-# Copy the rest of the source files into the image.
-COPY . .
+# Set app directory (for bind mount)
+WORKDIR /opt/frontend/app
 
-# Expose the port that the application listens on.
-EXPOSE 8080
+# Default command
+ENTRYPOINT ["npm", "run"]
 
-# Run the application.
-CMD npx expo start --web 
+# Generate services
+CMD ["generate:api"]
+
+# Run as web
+CMD ["web"]

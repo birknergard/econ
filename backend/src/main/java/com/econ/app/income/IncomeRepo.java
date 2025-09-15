@@ -5,17 +5,16 @@ import com.econ.app.models.Income;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class IncomeRepo {
   private ConnectionHandler db;
 
-  public IncomeRepo() throws SQLException {
+  public IncomeRepo() {
     this.db = new ConnectionHandler();
   }
 
-  private Connection connect() throws SQLException {
+  private Connection connect() throws Exception {
     return this.db.getConnection();
   }
 
@@ -27,7 +26,7 @@ public class IncomeRepo {
       }
   }
 
-  protected boolean exists(String id) throws SQLException {
+  protected boolean exists(String id) throws Exception {
     Connection connection = null;
     PreparedStatement statement = null;
     ResultSet result = null;
@@ -47,7 +46,7 @@ public class IncomeRepo {
     }
   }
 
-  protected Income[] getAll() throws SQLException {
+  protected Income[] getAll() throws Exception {
     Connection connection = null;
     PreparedStatement statement = null;
     ResultSet result = null;
@@ -76,7 +75,7 @@ public class IncomeRepo {
     }
   }
 
-  protected Income get(String id) throws SQLException {
+  protected Income get(String id) throws Exception {
     Connection connection = null;
     PreparedStatement statement = null;
     ResultSet result = null;
@@ -105,7 +104,7 @@ public class IncomeRepo {
     }
   }
 
-  protected void create(Income income) throws SQLException {
+  protected void create(Income income) throws Exception {
     Connection connection = null;
     PreparedStatement statement = null;
     String query = "INSERT INTO INCOMES(id, name, amount) VALUES(?, ?, ?)";
@@ -122,7 +121,7 @@ public class IncomeRepo {
     }
   }
 
-  protected void edit(Income income) throws SQLException {
+  protected void edit(Income income) throws Exception {
     Connection connection = null;
     PreparedStatement statement = null;
     String query = "UPDATE INCOMES SET name = ?, amount = ? WHERE id = ?";
@@ -141,7 +140,7 @@ public class IncomeRepo {
     }
   }
 
-  protected void remove(String id) throws SQLException {
+  protected void remove(String id) throws Exception {
     Connection connection = null;
     PreparedStatement statement = null;
     String query = "DELETE FROM INCOMES WHERE id = ?";

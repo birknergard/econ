@@ -5,17 +5,16 @@ import com.econ.app.models.Expense;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ExpenseRepo {
   private ConnectionHandler db;
 
-  public ExpenseRepo() throws SQLException {
+  public ExpenseRepo() {
     this.db = new ConnectionHandler();
   }
 
-  private Connection connect() throws SQLException {
+  private Connection connect() throws Exception {
     return this.db.getConnection();
   }
 

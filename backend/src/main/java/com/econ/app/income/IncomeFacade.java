@@ -10,27 +10,27 @@ public class IncomeFacade {
     this.repository = new IncomeRepo();
   }
 
-  protected boolean exists(String id) throws SQLException {
+  protected boolean exists(String id) throws Exception {
     return this.repository.exists(id);
   }
 
-  protected Income[] getAll() throws SQLException {
+  protected Income[] getAll() throws Exception {
     return this.repository.getAll();
   }
 
-  protected Income get(String id) throws SQLException {
+  protected Income get(String id) throws Exception {
     return this.repository.get(id);
   }
 
-  protected void create(Income income) throws SQLException {
+  protected void create(Income income) throws Exception {
     repository.create(income);
   }
 
-  protected void edit(Income income) throws SQLException {
+  protected void edit(Income income) throws Exception {
     repository.edit(income);
   }
 
-  protected void remove(String id) throws SQLException {
+  protected void remove(String id) throws Exception {
     repository.remove(id);
   }
 }

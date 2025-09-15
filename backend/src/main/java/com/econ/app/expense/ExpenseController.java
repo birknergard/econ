@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(
-    origins = "http://localhost:8081",
+    origins = {"http://frontend:8081", "http://127.0.0.1:8081", "http://10.0.2.2:8081"},
     methods = {
       RequestMethod.GET,
       RequestMethod.POST,

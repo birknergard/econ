@@ -7,7 +7,7 @@
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web",
+    "web": "expo start --web --host lan",
     "lint": "expo lint",
     "generate:api": "npx openapi-typescript-codegen --input http://backend:8080/api/swagger.json --output ./generated --client axios"
   },
