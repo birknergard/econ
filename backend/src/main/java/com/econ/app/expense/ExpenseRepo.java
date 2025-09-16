@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class ExpenseRepo {
-  private static boolean hasInititalized = false;
+  private static Boolean hasInititalized = null;
   private ConnectionHandler db;
 
   @Autowired
@@ -28,7 +28,7 @@ public class ExpenseRepo {
   }
 
   private void initialize(Connection connection) throws Exception {
-    if (hasInititalized) return;
+    if (hasInititalized != null && hasInititalized) return;
 
     System.out.println("INIT: (1/2) Attempting to create EXPENSES table");
     String query =

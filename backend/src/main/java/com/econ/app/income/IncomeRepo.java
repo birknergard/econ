@@ -1,12 +1,20 @@
 package com.econ.app.income;
 
+import com.econ.app.database.*;
+import com.econ.app.models.Income;
+import java.sql.*;
+import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class IncomeRepo {
-  /*
+  private static Boolean hasInitialized = null;
   private ConnectionHandler db;
 
-  public IncomeRepo() {
-    this.db = new ConnectionHandler();
+  @Autowired
+  public IncomeRepo(ConnectionHandler db) {
+    this.db = db;
   }
 
   private Connection connect() throws Exception {
@@ -21,6 +29,26 @@ public class IncomeRepo {
       }
   }
 
+  private void initialize(Connection connection) throws Exception {
+    if (hasInitialized != null && hasInitialized) return;
+
+    System.out.println("INIT: (1/2) Attempting to create INCOMES table");
+    String query =
+        """
+          CREATE TABLE INCOMES(
+            id STRING PRIMARY KEY,
+            name STRING NOT NULL,
+            amount DOUBLE NOT NULL
+          )
+        """;
+
+    try (PreparedStatement statement = connection.prepareStatement(query)) {
+      statement.executeUpdate();
+      System.out.println("INIT: (2/2) INCOMES table created");
+      hasInitialized = true;
+    }
+  }
+
   protected boolean exists(String id) throws Exception {
     Connection connection = null;
     PreparedStatement statement = null;
@@ -28,7 +56,8 @@ public class IncomeRepo {
     String query = "SELECT 1 FROM INCOMES WHERE id = ?";
 
     try {
-      connection = this.connect();
+      connection = connect();
+      initialize(connection);
       statement = connection.prepareStatement(query);
       statement.setString(1, id);
       result = statement.executeQuery();
@@ -48,7 +77,8 @@ public class IncomeRepo {
     String query = "SELECT * FROM INCOMES";
 
     try {
-      connection = this.connect();
+      connection = connect();
+      initialize(connection);
       statement = connection.prepareStatement(query);
       result = statement.executeQuery();
 
@@ -76,7 +106,8 @@ public class IncomeRepo {
     ResultSet result = null;
     String query = "SELECT * FROM INCOMES WHERE id = ?";
     try {
-      connection = this.connect();
+      connection = connect();
+      initialize(connection);
       query = "SELECT * FROM INCOMES WHERE id = ?";
       statement = connection.prepareStatement(query);
       statement.setString(1, id);
@@ -104,7 +135,8 @@ public class IncomeRepo {
     PreparedStatement statement = null;
     String query = "INSERT INTO INCOMES(id, name, amount) VALUES(?, ?, ?)";
     try {
-      connection = this.connect();
+      connection = connect();
+      initialize(connection);
       statement = connection.prepareStatement(query);
       statement.setString(1, income.getId());
       statement.setString(2, income.getName());
@@ -122,7 +154,8 @@ public class IncomeRepo {
     String query = "UPDATE INCOMES SET name = ?, amount = ? WHERE id = ?";
 
     try {
-      connection = this.connect();
+      connection = connect();
+      initialize(connection);
       statement = connection.prepareStatement(query);
       statement.setString(1, income.getName());
       statement.setDouble(2, income.getAmount());
@@ -141,7 +174,8 @@ public class IncomeRepo {
     String query = "DELETE FROM INCOMES WHERE id = ?";
 
     try {
-      connection = this.connect();
+      connection = connect();
+      initialize(connection);
       statement = connection.prepareStatement(query);
       statement.setString(1, id);
       statement.executeUpdate();
@@ -150,5 +184,4 @@ public class IncomeRepo {
       closeQuietly(connection);
     }
   }
-  */
 }

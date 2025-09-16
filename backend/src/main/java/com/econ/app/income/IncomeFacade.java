@@ -1,12 +1,17 @@
 package com.econ.app.income;
 
+import com.econ.app.models.Income;
+import java.sql.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class IncomeFacade {
-  /*
   public IncomeRepo repository;
 
-  public IncomeFacade() throws SQLException {
-    this.repository = new IncomeRepo();
+  @Autowired
+  public IncomeFacade(IncomeRepo repo) throws SQLException {
+    this.repository = repo;
   }
 
   protected boolean exists(String id) throws Exception {
@@ -32,5 +37,4 @@ public class IncomeFacade {
   protected void remove(String id) throws Exception {
     repository.remove(id);
   }
-  */
 }
