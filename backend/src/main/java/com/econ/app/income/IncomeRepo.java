@@ -1,13 +1,8 @@
 package com.econ.app.income;
 
-import com.econ.app.database.ConnectionHandler;
-import com.econ.app.models.Income;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 
 public class IncomeRepo {
+  /*
   private ConnectionHandler db;
 
   public IncomeRepo() {
@@ -155,4 +150,5 @@ public class IncomeRepo {
       closeQuietly(connection);
     }
   }
+  */
 }

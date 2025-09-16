@@ -6,12 +6,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class ExpenseRepo {
+  private static boolean hasInititalized = false;
   private ConnectionHandler db;
 
-  public ExpenseRepo() {
-    this.db = new ConnectionHandler();
+  @Autowired
+  public ExpenseRepo(ConnectionHandler db) {
+    this.db = db;
   }
 
   private Connection connect() throws Exception {
@@ -22,6 +27,27 @@ public class ExpenseRepo {
     if (c != null) c.close();
   }
 
+  private void initialize(Connection connection) throws Exception {
+    if (hasInititalized) return;
+
+    System.out.println("INIT: (1/2) Attempting to create EXPENSES table");
+    String query =
+        """
+          CREATE TABLE EXPENSES(
+            id STRING PRIMARY KEY,
+            name STRING NOT NULL,
+            cost DOUBLE NOT NULL,
+            category STRING NOT NULL
+          )
+        """;
+
+    try (PreparedStatement statement = connection.prepareStatement(query)) {
+      statement.executeUpdate();
+      System.out.println("INIT: (2/2) EXPENSES table created");
+      hasInititalized = true;
+    }
+  }
+
   protected boolean exists(String id) throws Exception {
     Connection connection = null;
     PreparedStatement statement = null;
@@ -30,6 +56,7 @@ public class ExpenseRepo {
 
     try {
       connection = this.connect();
+      initialize(connection);
       statement = connection.prepareStatement(query);
       statement.setString(1, id);
       result = statement.executeQuery();
@@ -50,6 +77,7 @@ public class ExpenseRepo {
 
     try {
       connection = this.connect();
+      this.initialize(connection);
       statement = connection.prepareStatement(query);
       result = statement.executeQuery();
       ArrayList<Expense> output = new ArrayList<>();
@@ -79,6 +107,7 @@ public class ExpenseRepo {
     String query = "SELECT * FROM EXPENSES WHERE id = ?";
     try {
       connection = this.connect();
+      this.initialize(connection);
       query = "SELECT * FROM EXPENSES WHERE id = ?";
       statement = connection.prepareStatement(query);
       statement.setString(1, id);
@@ -105,6 +134,7 @@ public class ExpenseRepo {
     String query = "INSERT INTO EXPENSES(id, name, cost, category) VALUES(?, ?, ?, ?)";
     try {
       connection = this.connect();
+      this.initialize(connection);
       for (Expense expense : expenses) {
         statement = connection.prepareStatement(query);
         statement.setString(1, expense.getId());
@@ -125,6 +155,7 @@ public class ExpenseRepo {
     String query = "INSERT INTO EXPENSES(id, name, cost, category) VALUES(?, ?, ?, ?)";
     try {
       connection = this.connect();
+      this.initialize(connection);
       statement = connection.prepareStatement(query);
       statement.setString(1, expense.getId());
       statement.setString(2, expense.getName());
@@ -145,6 +176,7 @@ public class ExpenseRepo {
 
     try {
       connection = this.connect();
+      this.initialize(connection);
       statement = connection.prepareStatement(query);
       statement.setString(1, expense.getName());
       statement.setDouble(2, expense.getCost());
@@ -165,6 +197,7 @@ public class ExpenseRepo {
 
     try {
       connection = this.connect();
+      this.initialize(connection);
       statement = connection.prepareStatement(query);
       statement.setString(1, id);
       statement.executeUpdate();

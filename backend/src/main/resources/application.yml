@@ -1,11 +1,12 @@
 server:
   port: 8080
-  address: 127.0.0.1
+  address: 0.0.0.0
 
 spring: 
   datasource:
-    url: jdbc:sqlite:data.db
+    url: jdbc:sqlite:src/main/resources/data.db
     driver-class-name: org.sqlite.JDBC
+
 sql: 
   init:
     mode: always
@@ -13,10 +14,10 @@ sql:
 springdoc:
   api-docs: 
     enabled: true
-    path: /api/swagger.json
+    path: /swagger.json
   swagger-ui:
     enabled: true
-    path: /api/swagger-ui.html
+    path: /swagger-ui.html
     operationsSorter: method
     tagsSorter: alpha
     show-actuator: true

@@ -2,6 +2,7 @@ package com.econ.app.expense;
 
 import com.econ.app.models.*;
 import java.sql.SQLException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,8 +19,9 @@ import org.springframework.web.bind.annotation.*;
 public class ExpenseController {
   private ExpenseFacade facade;
 
-  public ExpenseController() throws SQLException {
-    this.facade = new ExpenseFacade();
+  @Autowired
+  public ExpenseController(ExpenseFacade facade) throws SQLException {
+    this.facade = facade;
   }
 
   @GetMapping("/ex")

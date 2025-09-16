@@ -2,12 +2,16 @@ package com.econ.app.expense;
 
 import com.econ.app.models.*;
 import java.sql.SQLException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ExpenseFacade {
   private ExpenseRepo repository;
 
-  public ExpenseFacade() throws SQLException {
-    this.repository = new ExpenseRepo();
+  @Autowired
+  public ExpenseFacade(ExpenseRepo expenseRepo) throws SQLException {
+    this.repository = expenseRepo;
   }
 
   public boolean exists(String id) throws Exception {

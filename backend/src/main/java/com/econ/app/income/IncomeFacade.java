@@ -1,9 +1,8 @@
 package com.econ.app.income;
 
-import com.econ.app.models.Income;
-import java.sql.SQLException;
 
 public class IncomeFacade {
+  /*
   public IncomeRepo repository;
 
   public IncomeFacade() throws SQLException {
@@ -33,4 +32,5 @@ public class IncomeFacade {
   protected void remove(String id) throws Exception {
     repository.remove(id);
   }
+  */
 }

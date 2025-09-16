@@ -1,25 +1,23 @@
 name: econ
+
 services:
   backend:
     build: ./backend
-    container_name: econ-backend
+    container_name: backend
     ports:
       - 8080:8080
 
-  
- # frontend:
- #   build: ./frontend
- #   container_name: econ-frontend
- #   depends_on: 
- #     - backend
- #   environment:
- #     NODE_ENV: development
- #     PORT: 8081
- #   ports:
- #     - 8081:8081
- #     - 8082:8082
- #     - 8083:8083
- #   networks:
- #     - econ-network
- #   volumes:
- #     - ./frontend:/opt/frontend/app   # <- bind mount your local files
+#  frontend: 
+#    build: ./frontend
+#    container_name: frontend
+#    depends_on: 
+#      - backend
+#    environment:
+#      NODE_ENV: development
+#      PORT: 8081
+#    ports:
+#      - 8081:8081
+#      - 8082:8082
+#      - 8083:8083
+#    volumes:
+#      - ./frontend:/opt/frontend/app
