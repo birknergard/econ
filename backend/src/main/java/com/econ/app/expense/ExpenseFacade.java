@@ -22,9 +22,9 @@ public class ExpenseFacade {
     return repository.getAll();
   }
 
-  public ExpenseList getExpenseByCategories() throws Exception {
+  public ExpenseByCategory getExpenseByCategories() throws Exception {
     Expense[] unsorted = repository.getAll();
-    return new ExpenseList(unsorted);
+    return new ExpenseByCategory(unsorted);
   }
 
   public Expense get(String id) throws Exception {

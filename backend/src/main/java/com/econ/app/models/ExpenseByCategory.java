@@ -4,7 +4,7 @@ import com.econ.app.enums.Categories;
 import jakarta.validation.constraints.NotNull;
 import java.util.Arrays;
 
-public class ExpenseList {
+public class ExpenseByCategory {
   @NotNull private Expense[] housing;
 
   @NotNull private Expense[] food;
@@ -25,7 +25,7 @@ public class ExpenseList {
     return sortedList;
   }
 
-  public ExpenseList() {
+  public ExpenseByCategory() {
     this.housing = new Expense[0];
     this.food = new Expense[0];
     this.transport = new Expense[0];
@@ -35,7 +35,7 @@ public class ExpenseList {
     this.housing = new Expense[0];
   }
 
-  public ExpenseList(Expense[] expenses) {
+  public ExpenseByCategory(Expense[] expenses) {
     this.housing = filterByCategory(expenses, Categories.HOUSING.name());
     this.food = filterByCategory(expenses, Categories.FOOD.name());
     this.transport = filterByCategory(expenses, Categories.TRANSPORT.name());

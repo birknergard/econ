@@ -32,7 +32,7 @@ public class ExpenseController {
 
   @GetMapping("/ex/category")
   @ResponseBody
-  public ResponseEntity<ExpenseList> getExpensesByCategory() throws Exception {
+  public ResponseEntity<ExpenseByCategory> getExpensesByCategory() throws Exception {
     return ResponseEntity.ok(this.facade.getExpenseByCategories());
   }
 
