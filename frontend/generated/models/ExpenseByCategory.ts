@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { Expense } from './Expense';
-export type ExpenseList = {
+export type ExpenseByCategory = {
     housing: Array<Expense>;
     food: Array<Expense>;
     transport: Array<Expense>;

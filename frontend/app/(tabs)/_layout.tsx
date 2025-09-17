@@ -9,7 +9,7 @@ export default function Layout() {
         options={{
           title: "Income",
           tabBarIcon: ({ color }) => (
-            <AntDesign name="plussquareo" size={24} color={color} />
+            <AntDesign name="plus-square" size={24} color={color} />
           ),
         }}
       />
@@ -27,7 +27,7 @@ export default function Layout() {
         options={{
           title: "Expenses",
           tabBarIcon: ({ color }) => (
-            <AntDesign name="minussquareo" size={24} color={color} />
+            <AntDesign name="minus-square" size={24} color={color} />
           ),
         }}
       />

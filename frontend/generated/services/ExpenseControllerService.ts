@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { Expense } from '../models/Expense';
-import type { ExpenseList } from '../models/ExpenseList';
+import type { ExpenseByCategory } from '../models/ExpenseByCategory';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
@@ -111,10 +111,10 @@ export class ExpenseControllerService {
         });
     }
     /**
-     * @returns ExpenseList OK
+     * @returns ExpenseByCategory OK
      * @throws ApiError
      */
-    public static getExpensesByCategory(): CancelablePromise<ExpenseList> {
+    public static getExpensesByCategory(): CancelablePromise<ExpenseByCategory> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/expenses/ex/category',

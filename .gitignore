@@ -1,4 +1,4 @@
 backend/target/
 backend/data.db
 .old_frontend/
-frontend/.env
+*.env
