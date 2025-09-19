@@ -6,13 +6,24 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5EDD722C6B5EA135A025BB51 /* CategoryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B5AC8ADA998081712B81D7 /* CategoryTable.swift */; };
+		D956B207222572A45937350D /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04D71A2DE3280B509842901 /* Expense.swift */; };
+		FC039AB2B3B6D59CB55919AF /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA3F4C0D4B582FAE61393E7 /* Income.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		27B5AC8ADA998081712B81D7 /* CategoryTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CategoryTable.swift; sourceTree = "<group>"; };
+		B04D71A2DE3280B509842901 /* Expense.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		C31F1E2B2E7B101200A0171D /* ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAA3F4C0D4B582FAE61393E7 /* Income.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C31F1E2D2E7B101200A0171D /* ios */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = ios;
 			sourceTree = "<group>";
 		};
@@ -29,6 +40,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BFD8236B9FFD708C211CF36 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				27B5AC8ADA998081712B81D7 /* CategoryTable.swift */,
+			);
+			name = Components;
+			path = Components;
+			sourceTree = "<group>";
+		};
+		29CA0F7E590D339A7357460D /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				3109064C119EBF00DD49A1A4 /* Views */,
+				79C020A4B2EA2FED97D41A8B /* Services */,
+				1BFD8236B9FFD708C211CF36 /* Components */,
+				F022316176151749F340A06C /* Models */,
+			);
+			name = ios;
+			path = ios;
+			sourceTree = "<group>";
+		};
+		3109064C119EBF00DD49A1A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		79C020A4B2EA2FED97D41A8B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Services;
+			path = Services;
+			sourceTree = "<group>";
+		};
 		C31F1E222E7B101200A0171D = {
 			isa = PBXGroup;
 			children = (
@@ -41,8 +89,19 @@
 			isa = PBXGroup;
 			children = (
 				C31F1E2B2E7B101200A0171D /* ios.app */,
+				29CA0F7E590D339A7357460D /* ios */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F022316176151749F340A06C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B04D71A2DE3280B509842901 /* Expense.swift */,
+				CAA3F4C0D4B582FAE61393E7 /* Income.swift */,
+			);
+			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -64,8 +123,6 @@
 				C31F1E2D2E7B101200A0171D /* ios */,
 			);
 			name = ios;
-			packageProductDependencies = (
-			);
 			productName = ios;
 			productReference = C31F1E2B2E7B101200A0171D /* ios.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +176,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EDD722C6B5EA135A025BB51 /* CategoryTable.swift in Sources */,
+				D956B207222572A45937350D /* Expense.swift in Sources */,
+				FC039AB2B3B6D59CB55919AF /* Income.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

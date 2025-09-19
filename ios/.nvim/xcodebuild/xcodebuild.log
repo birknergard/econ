@@ -1,13 +1,16 @@
 note: Building targets in dependency order
 note: Target dependency graph (1 target)
-[ios] Compiling ContentView.swift
-[ios] Copy arm64-apple-ios-simulator.swiftsourceinfo -> ios.swiftsourceinfo
+[!] Skipping duplicate build file in Compile Sources build phase: /Users/birknergard/ws/personal/econ/ios/ios/Components/CategoryTable.swift (in target 'ios' from project 'ios')
+[!] Skipping duplicate build file in Compile Sources build phase: /Users/birknergard/ws/personal/econ/ios/ios/Models/Expense.swift (in target 'ios' from project 'ios')
+[!] Skipping duplicate build file in Compile Sources build phase: /Users/birknergard/ws/personal/econ/ios/ios/Models/Income.swift (in target 'ios' from project 'ios')
+[ios] Processing empty-ios.plist
+[ios] Compiling CategoryTable.swift
 [ios] Copy arm64-apple-ios-simulator.abi.json -> ios.abi.json
+[ios] Copy arm64-apple-ios-simulator.swiftsourceinfo -> ios.swiftsourceinfo
 [ios] Linking ios.debug.dylib
 note: Using stub executor library with Swift entry point. (in target 'ios' from project 'ios')
 [ios] Linking ios
 [ios] Extract App Intents Metadata
-[ios] Processing empty-ios.plist
 Signing ios.debug.dylib (in target 'ios' from project 'ios')
 Signing __preview.dylib (in target 'ios' from project 'ios')
 Signing ios.app (in target 'ios' from project 'ios')
