@@ -1,25 +1,51 @@
+Clean Succeeded
 note: Building targets in dependency order
 note: Target dependency graph (1 target)
-[!] Skipping duplicate build file in Compile Sources build phase: /Users/birknergard/ws/personal/econ/ios/ios/Components/CategoryTable.swift (in target 'ios' from project 'ios')
-[!] Skipping duplicate build file in Compile Sources build phase: /Users/birknergard/ws/personal/econ/ios/ios/Models/Expense.swift (in target 'ios' from project 'ios')
-[!] Skipping duplicate build file in Compile Sources build phase: /Users/birknergard/ws/personal/econ/ios/ios/Models/Income.swift (in target 'ios' from project 'ios')
+[ios] Write Auxiliary File ios.DependencyStaticMetadataFileList
+[ios] Write Auxiliary File ios.DependencyMetadataFileList
+[ios] Write Auxiliary File ios.hmap
+[ios] Write Auxiliary File ios-project-headers.hmap
+[ios] Write Auxiliary File ios-own-target-headers.hmap
+[ios] Write Auxiliary File ios-generated-files.hmap
+[ios] Write Auxiliary File ios-all-target-headers.hmap
+[ios] Write Auxiliary File ios-all-non-framework-target-headers.hmap
+[ios] Write Auxiliary File ios-DebugDylibPath-normal-arm64.txt
+[ios] Write Auxiliary File ios-DebugDylibInstallName-normal-arm64.txt
+[ios] Write Auxiliary File empty-ios.plist
+[ios] Write Auxiliary File ios_const_extract_protocols.json
+[ios] Write Auxiliary File ios.SwiftConstValuesFileList
+[ios] Write Auxiliary File ios.SwiftFileList
+[ios] Write Auxiliary File ios.LinkFileList
+[ios] Write Auxiliary File ios-OutputFileMap.json
+[ios] Write Auxiliary File Entitlements-Simulated.plist
+[ios] Linking __preview.dylib
+[ios] Generate Asset Symbols Assets.xcassets
 [ios] Processing empty-ios.plist
+[ios] Compiling ContentView.swift
+[ios] Compiling iosApp.swift
+[ios] Compiling ExpensesByCategory.swift
+[ios] Compiling Income.swift
+[ios] Compiling IncomesView.swift
+[ios] Compiling EconService.swift
+[x] /Users/birknergard/ws/personal/econ/ios/ios/Services/EconService.swift:8:5: missing return in instance method expected to return '[Expense]'
+    }
+    ^
+[ios] Compiling ExpensesView.swift
+[ios] Compiling GeneratedAssetSymbols.swift
 [ios] Compiling CategoryTable.swift
-[ios] Copy arm64-apple-ios-simulator.abi.json -> ios.abi.json
-[ios] Copy arm64-apple-ios-simulator.swiftsourceinfo -> ios.swiftsourceinfo
-[ios] Linking ios.debug.dylib
-note: Using stub executor library with Swift entry point. (in target 'ios' from project 'ios')
-[ios] Linking ios
-[ios] Extract App Intents Metadata
-Signing ios.debug.dylib (in target 'ios' from project 'ios')
-Signing __preview.dylib (in target 'ios' from project 'ios')
-Signing ios.app (in target 'ios' from project 'ios')
-[ios] Validate ios.app
-Build Succeeded
+[ios] Compiling Expense.swift
+[!] Skipping duplicate build file in Compile Sources build phase: /Users/birknergard/ws/personal/econ/ios/ios/Components/CategoryTable.swift (in target 'ios' from project 'ios')
+[!] Skipping duplicate build file in Compile Sources build phase: /Users/birknergard/ws/personal/econ/ios/ios/Services/EconService.swift (in target 'ios' from project 'ios')
 
 -----------------------------
 -- xcodebuild.nvim summary --
 -----------------------------
 
-  ✔ Build Succeeded
+Errors:
+  ✖ /Users/birknergard/ws/personal/econ/ios/ios/Services/EconService.swift:8:5
+    missing return in instance method expected to return '[Expense]'
+        }
+        ^
+
+  Build Failed
 

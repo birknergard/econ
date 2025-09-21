@@ -1,4 +1,5 @@
 backend/target/
 backend/data.db
 .old_frontend/
+generate_test/
 *.env
