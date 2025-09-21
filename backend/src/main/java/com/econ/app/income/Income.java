@@ -1,5 +1,6 @@
-package com.econ.app.models;
+package com.econ.app.income;
 
+import com.econ.app.models.Field;
 import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
@@ -19,11 +20,11 @@ public class Income extends Field {
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
-    if (!(o instanceof Expense)) return false;
-    Expense expense = (Expense) o;
+    if (!(o instanceof Income)) return false;
+    Income expense = (Income) o;
     return (expense.getId().equals(this.id)
         && expense.getName().equals(this.name)
-        && expense.getCost() == this.amount);
+        && expense.getAmount() == this.amount);
   }
 
   @Override

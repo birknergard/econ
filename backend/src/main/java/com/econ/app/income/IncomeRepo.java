@@ -1,7 +1,6 @@
 package com.econ.app.income;
 
 import com.econ.app.database.*;
-import com.econ.app.models.Income;
 import java.sql.*;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;

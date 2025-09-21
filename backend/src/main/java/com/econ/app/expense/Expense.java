@@ -1,5 +1,6 @@
-package com.econ.app.models;
+package com.econ.app.expense;
 
+import com.econ.app.models.Field;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import java.util.Objects;

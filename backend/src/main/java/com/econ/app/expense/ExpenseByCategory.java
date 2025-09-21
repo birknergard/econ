@@ -1,4 +1,4 @@
-package com.econ.app.models;
+package com.econ.app.expense;
 
 import com.econ.app.enums.Categories;
 import jakarta.validation.constraints.NotNull;
@@ -6,15 +6,10 @@ import java.util.Arrays;
 
 public class ExpenseByCategory {
   @NotNull private Expense[] housing;
-
   @NotNull private Expense[] food;
-
   @NotNull private Expense[] transport;
-
   @NotNull private Expense[] other;
-
   @NotNull private Expense[] savings;
-
   @NotNull private Expense[] debt;
 
   private Expense[] filterByCategory(Expense[] unsortedList, String category) {

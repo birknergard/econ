@@ -1,7 +1,6 @@
 package com.econ.app.expense;
 
 import com.econ.app.database.ConnectionHandler;
-import com.econ.app.models.Expense;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

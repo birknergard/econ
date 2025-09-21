@@ -1,6 +1,5 @@
 package com.econ.app.expense;
 
-import com.econ.app.models.*;
 import java.sql.SQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
