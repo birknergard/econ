@@ -4,7 +4,7 @@ server:
 
 spring: 
   datasource:
-    url: ${DATABASE_URL}
+    url: jdbc:sqlite:/var/local.db 
     driver-class-name: org.sqlite.JDBC
 
 sql: 

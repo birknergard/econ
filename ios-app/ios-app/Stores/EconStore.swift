@@ -4,8 +4,8 @@ import Foundation
 class EconStore: ObservableObject {
     var service: EconService = EconService()
 
-    @Published var expenses: [Expense] = []
-    @Published var incomes: [Income] = []
+    @Published var expenses: [Expense]
+    @Published var incomes: [Income]
     let categories: [String] = [
         "Housing", "Food", "Transport", "Other", "Saving", "Debt",
     ]
@@ -15,7 +15,7 @@ class EconStore: ObservableObject {
     }
 
     init() {
-        self.expenses = [Expense]()
+        self.expenses = self.service.getExpenses()
         self.incomes = [Income]()
     }
 }

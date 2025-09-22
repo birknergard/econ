@@ -1,5 +1,6 @@
 backend/target/
 backend/data.db
 .old_frontend/
+.DS_STORE
 generate_test/
 *.env

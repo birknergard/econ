@@ -41,8 +41,7 @@ struct CreateExpenseView: View {
                         "Select a Category",
                         selection: $category
                     ) {
-                        ForEach(store.categories, id: \.self) {
-                            category in
+                        ForEach(store.categories, id: \.self) { category in
                             Text(category)
                         }
                     }
@@ -68,7 +67,12 @@ struct CreateExpenseView: View {
                         Spacer()
 
                         Button(action: {
-                            // Cancel
+                            store.createExpense(expense: Expense(
+                                id: "ios-test",
+                                name: name,
+                                cost: cost,
+                                category: category.lowercased()
+                            ))
                         }) {
                             HStack {
                                 Image(systemName: "xmark.bin")
@@ -80,6 +84,7 @@ struct CreateExpenseView: View {
                         }
                     }
                     .frame(maxWidth: .infinity)
+                    .foregroundColor(.red)
                     .padding()
                 }
             }
